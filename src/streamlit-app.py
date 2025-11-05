@@ -5,12 +5,16 @@ Project: AI + DevOps Integration for Telecom Industry (IA-2)
 Description: Interactive web app for churn prediction in Indian Rupees
 """
 
+import os
 import pandas as pd
 import numpy as np
 import streamlit as st
 from catboost import CatBoostClassifier
 
-MODEL_PATH = "../model/cat_model.cbm"
+# Get the directory of the current script and construct model path
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+MODEL_PATH = os.path.join(PROJECT_ROOT, "model", "cat_model.cbm")
 
 st.set_page_config(
     page_title="AI Churn Prediction",
